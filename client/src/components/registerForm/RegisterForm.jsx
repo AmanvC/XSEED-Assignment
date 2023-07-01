@@ -8,8 +8,9 @@ const RegisterForm = () => {
     studentName: "",
     parentName: "",
     email: "",
+    password: "",
     schoolCode: "",
-    // schoolAccessKey: "",
+    schoolAccessKey: "",
   });
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -23,8 +24,9 @@ const RegisterForm = () => {
       !inputs.studentName ||
       !inputs.parentName ||
       !inputs.email ||
-      !inputs.schoolCode
-      //   !inputs.schoolAccessKey
+      !inputs.password ||
+      !inputs.schoolCode ||
+      !inputs.schoolAccessKey
     ) {
       setIsValid(false);
     } else {
@@ -36,6 +38,15 @@ const RegisterForm = () => {
     try {
       setLoading(true);
       const res = await makeRequest().post("/users/register", { ...inputs });
+      toast.success(res.data.message);
+      setInputs({
+        studentName: "",
+        parentName: "",
+        email: "",
+        password: "",
+        schoolCode: "",
+        schoolAccessKey: "",
+      });
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -85,6 +96,17 @@ const RegisterForm = () => {
         />
       </FormControl>
       <FormControl isRequired>
+        <FormLabel>Password</FormLabel>
+        <Input
+          boxShadow="inner"
+          type="password"
+          name="password"
+          onChange={handleInputChange}
+          size="md"
+          placeholder="Enter Password"
+        />
+      </FormControl>
+      <FormControl isRequired>
         <FormLabel>School Code</FormLabel>
         <Input
           boxShadow="inner"
@@ -94,7 +116,7 @@ const RegisterForm = () => {
           placeholder="Enter School Code"
         />
       </FormControl>
-      {/* <FormControl isRequired>
+      <FormControl isRequired>
         <FormLabel>School Access Key</FormLabel>
         <Input
           boxShadow="inner"
@@ -103,7 +125,7 @@ const RegisterForm = () => {
           size="md"
           placeholder="Enter School Access Key"
         />
-      </FormControl> */}
+      </FormControl>
       <Button
         type="submit"
         mt={"32px"}

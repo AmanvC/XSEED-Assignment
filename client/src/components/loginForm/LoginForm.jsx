@@ -39,7 +39,10 @@ const LoginForm = ({ isOpen, onClose }) => {
 
   const handleSubmitForm = async () => {
     setLoading(true);
-    await login(inputs.email, inputs.password);
+    const loggedIn = await login(inputs.email, inputs.password);
+    if (loggedIn) {
+      onClose();
+    }
     setLoading(false);
   };
 

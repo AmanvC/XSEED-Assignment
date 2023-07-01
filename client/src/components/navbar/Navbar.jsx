@@ -29,7 +29,7 @@ const Navbar = () => {
     onClose: closeModal,
   } = useDisclosure();
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
   return (
     <>
@@ -88,7 +88,7 @@ const Navbar = () => {
                 </MenuButton>
                 <MenuList>
                   <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={() => logout()}>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Flex>

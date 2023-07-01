@@ -37,13 +37,16 @@ export const AuthContextProvider = ({ children }) => {
       setCurrentUser(jwt(res.data.token));
       navigate("/");
       toast.success("Logged in successfully.");
+      return true;
     } catch (err) {
       toast.error(err.response.data.message || "Internal server error!");
+      return false;
     }
   };
 
   const logout = () => {
     setCurrentUser(null);
+    toast.success("You have been logged out.");
     removeItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
   };
 
