@@ -5,6 +5,11 @@ const port = process.env.PORT;
 const passportJWT = require("./config/passport_jwt_strategy");
 const db = require("./config/mongoose");
 
+const User = require("./models/User");
+const Chapter = require("./models/Chapter");
+const Lesson = require("./models/Lesson");
+const Question = require("./models/Question");
+
 const app = express();
 app.use(
   cors({

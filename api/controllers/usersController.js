@@ -39,7 +39,7 @@ module.exports.createSession = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User does not exist!",
+        message: "User with given email ID does not exist!",
       });
     }
     const checkPassword = await bcrypt.compare(data.password, user.password);
