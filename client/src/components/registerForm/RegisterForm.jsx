@@ -70,6 +70,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           name="studentName"
           onChange={handleInputChange}
+          value={inputs.studentName}
           size="md"
           placeholder="Enter Student Name"
         />
@@ -80,6 +81,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           name="parentName"
           onChange={handleInputChange}
+          value={inputs.parentName}
           size="md"
           placeholder="Enter Parent / Guardian Name"
         />
@@ -90,6 +92,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           type="email"
           name="email"
+          value={inputs.email}
           onChange={handleInputChange}
           size="md"
           placeholder="Enter Email"
@@ -101,6 +104,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           type="password"
           name="password"
+          value={inputs.password}
           onChange={handleInputChange}
           size="md"
           placeholder="Enter Password"
@@ -112,6 +116,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           name="schoolCode"
           onChange={handleInputChange}
+          value={inputs.schoolCode}
           size="md"
           placeholder="Enter School Code"
         />
@@ -122,6 +127,7 @@ const RegisterForm = () => {
           boxShadow="inner"
           name="schoolAccessKey"
           onChange={handleInputChange}
+          value={inputs.schoolAccessKey}
           size="md"
           placeholder="Enter School Access Key"
         />

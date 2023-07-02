@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
 const port = process.env.PORT;
+const passport = require("passport");
 const passportJWT = require("./config/passport_jwt_strategy");
 const db = require("./config/mongoose");
 
@@ -17,6 +18,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(passport.initialize());
 app.use("/", require("./routes"));
 
 app.listen(port, (err) => {
