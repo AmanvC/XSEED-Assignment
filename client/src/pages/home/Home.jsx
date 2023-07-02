@@ -33,7 +33,7 @@ const Home = () => {
     <Box
       // bgColor={"yellow"}
       overflow={"scroll"}
-      p={10}
+      p={{ base: "20px", md: "40px" }}
       display={"flex"}
       flexDir={"column"}
       gap={"20px"}

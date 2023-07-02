@@ -14,9 +14,14 @@ const Register = () => {
       overflow={"hidden"}
       // h="100%"
     >
-      <HStack h={"100%"} gap={10} overflow={"hidden"}>
+      <HStack
+        h={"100%"}
+        gap={10}
+        overflow={{ base: "scroll", md: "hidden" }}
+        flexDir={{ base: "column", md: "row" }}
+      >
         <Box
-          w={"50%"}
+          w={{ base: "100%", md: "50%" }}
           h="100%"
           display="flex"
           flexDirection={"column"}
@@ -51,9 +56,13 @@ const Register = () => {
             </Text>
           </Box>
         </Box>
-        <Box h={"100%"} border={"0.5px dashed lightgray"}></Box>
         <Box
-          w={"50%"}
+          h={"100%"}
+          border={"0.5px dashed lightgray"}
+          display={{ sm: "none", md: "block" }}
+        ></Box>
+        <Box
+          w={{ base: "100%", md: "50%" }}
           h="100%"
           display={"flex"}
           flexDir={"column"}
@@ -69,7 +78,7 @@ const Register = () => {
           >
             Register Now.
           </Heading>
-          <Box flex="1" overflowY={"scroll"}>
+          <Box flex="1" overflow={{ md: "scroll" }}>
             <RegisterForm />
           </Box>
         </Box>

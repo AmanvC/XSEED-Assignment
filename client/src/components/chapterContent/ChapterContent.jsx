@@ -36,9 +36,13 @@ const ChapterContent = ({ content }) => {
         >
           Explore Videos
         </Text>
-        <HStack gap={10}>
+        <HStack
+          gap={10}
+          flexDir={{ base: "column", md: "row" }}
+          overflow={"hidden"}
+        >
           {content?.videos?.map((video, index) => (
-            <ReactPlayer key={index} url={video} controls />
+            <ReactPlayer maxWidth="350px" key={index} url={video} controls />
           ))}
         </HStack>
       </Box>

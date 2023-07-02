@@ -56,8 +56,13 @@ const Comments = ({ chapterId }) => {
   };
 
   return (
-    <HStack display={"flex"} gap={"30px"} alignItems={"flex-start"}>
-      <VStack width={"50%"} gap={"10px"}>
+    <HStack
+      display={"flex"}
+      flexDir={{ base: "column", md: "row" }}
+      gap={"30px"}
+      alignItems={"flex-start"}
+    >
+      <VStack width={{ base: "100%", md: "50%" }} gap={"10px"}>
         {currentUser ? (
           <Text fontSize={"xl"} userSelect={"none"}>
             Ask your doubts here.
@@ -93,7 +98,7 @@ const Comments = ({ chapterId }) => {
       <VStack
         border={"1px dashed lightgray"}
         boxShadow={"lg"}
-        width={"50%"}
+        width={{ base: "100%", md: "50%" }}
         borderRadius={"10px"}
         p={"10px"}
         alignItems={"flex-start"}
@@ -125,7 +130,7 @@ const Comments = ({ chapterId }) => {
                 </Text>
                 <Text fontSize={"xs"}>{moment(ques.createdAt).fromNow()}</Text>
               </HStack>
-              <Text>{ques.question}</Text>
+              <Text fontSize={{ base: "sm", md: "md" }}>{ques.question}</Text>
             </VStack>
           </HStack>
         ))}
